@@ -12,6 +12,9 @@ migrate = Migrate(app, db)
 
 import basic_routes
 
+@app.route('/')
+def test():
+    return 'success'
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
