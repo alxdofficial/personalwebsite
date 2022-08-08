@@ -10,11 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Alex020109u!m@localhost:/p
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-import basic_routes
-
-@app.route('/')
-def test():
-    return 'success'
+from basic_routes import *
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
