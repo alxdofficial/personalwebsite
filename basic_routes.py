@@ -5,6 +5,6 @@ from app import app
 
 @app.route('/',methods = ['get'])
 def hello_world():
-    return render_template()
+    return render_template('index.html')
 
 
