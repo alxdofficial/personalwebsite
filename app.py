@@ -1,5 +1,5 @@
 from flask import Flask
-
+from flask import request, render_template, flash, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 app = Flask(__name__)
@@ -10,7 +10,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Alex020109u!m@localhost:/p
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from basic_routes import *
+@app.route('/',methods = ['GET'])
+def index():
+    return render_template('index.html')
+
+# from basic_routes import *
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
