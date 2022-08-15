@@ -20,7 +20,7 @@ a {
   border-color: #000;
   background-color: #dbdbdb;
   background-image: none;
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial;
 }
 
 .menu-bar {
@@ -1471,7 +1471,7 @@ a {
 
   .menu-dropdown-link {
     display: block;
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: Arial;
   }
 
   .aboutmediv {
@@ -1604,7 +1604,7 @@ a {
   }
 
   .aboutme-specialize-i2-text {
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: Arial;
   }
 
   .text-block-8 {
@@ -1714,7 +1714,7 @@ a {
     width: 100%;
     height: 90vh;
     opacity: 1;
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: Arial;
   }
 
   .traits-div {
@@ -1753,7 +1753,7 @@ a {
   }
 
   .traits-big-text-copy {
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: Arial;
   }
 
   .traits-text1-div {
