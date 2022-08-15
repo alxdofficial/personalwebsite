@@ -1,0 +1,7 @@
+{
+  "name": "personalwebsite",
+  "version": "1.0.0",
+  "dependencies": {
+    "@peertube/embed-api": "0.0.5"
+  }
+}
