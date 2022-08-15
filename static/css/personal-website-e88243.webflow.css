@@ -9,6 +9,10 @@
   outline-color: #3b79c3;
 }
 
+a {
+  text-decoration: underline;
+}
+
 .body {
   overflow: visible;
   border-style: solid;
@@ -16,6 +20,7 @@
   border-color: #000;
   background-color: #dbdbdb;
   background-image: none;
+  font-family: Arial;
 }
 
 .menu-bar {
@@ -1390,11 +1395,15 @@
 
 @media screen and (max-width: 479px) {
   .menu-bar {
-    overflow: hidden;
+    overflow: visible;
   }
 
   .video {
     display: none;
+  }
+
+  .toprightdropdown {
+    overflow: visible;
   }
 
   .pagetitlewhite {
@@ -1418,7 +1427,17 @@
   }
 
   .dropdown-list {
+    display: none;
     margin-left: -126px;
+  }
+
+  .dropdown-list.w--open {
+    display: none;
+  }
+
+  .menu-dropdown-link {
+    display: block;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .aboutmediv {
@@ -1548,6 +1567,10 @@
   .specialize-text-2 {
     margin-top: 40px;
     font-size: 14px;
+  }
+
+  .aboutme-specialize-i2-text {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   }
 
   .text-block-8 {
@@ -1692,6 +1715,10 @@
 
   .traits-big-text {
     font-size: 14px;
+  }
+
+  .traits-big-text-copy {
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .traits-text1-div {
