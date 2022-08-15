@@ -20,7 +20,7 @@ a {
   border-color: #000;
   background-color: #dbdbdb;
   background-image: none;
-  font-family: Arial;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 .menu-bar {
@@ -31,7 +31,7 @@ a {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 5px 10px;
+  padding: 5px 10px 5px 15px;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
@@ -1023,6 +1023,40 @@ a {
   font-weight: 700;
 }
 
+.dropdown {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.menu-icon {
+  display: block;
+  width: 45px;
+}
+
+.dropdown-toggle-2 {
+  padding: 0px;
+}
+
+.dropdown-list-2 {
+  margin-left: -32px;
+}
+
+.dropdown-list-2.w--open {
+  margin-left: -129px;
+  background-color: transparent;
+}
+
+.dropdown-link {
+  color: #e7e7e7;
+  font-weight: 700;
+  text-align: right;
+}
+
+.menu-icon-close {
+  display: none;
+  width: 25px;
+}
+
 @media screen and (max-width: 991px) {
   .dropdown-list {
     margin-right: 18px;
@@ -1437,7 +1471,7 @@ a {
 
   .menu-dropdown-link {
     display: block;
-    font-family: Arial;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .aboutmediv {
@@ -1570,7 +1604,7 @@ a {
   }
 
   .aboutme-specialize-i2-text {
-    font-family: Arial;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .text-block-8 {
@@ -1680,6 +1714,7 @@ a {
     width: 100%;
     height: 90vh;
     opacity: 1;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .traits-div {
@@ -1718,7 +1753,7 @@ a {
   }
 
   .traits-big-text-copy {
-    font-family: Arial;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .traits-text1-div {
