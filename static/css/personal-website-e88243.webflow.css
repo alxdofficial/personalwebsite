@@ -20,7 +20,7 @@ a {
   border-color: #000;
   background-color: #dbdbdb;
   background-image: none;
-  font-family: Arial;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 .menu-bar {
@@ -1057,6 +1057,69 @@ a {
   width: 25px;
 }
 
+.body-2 {
+  background-color: #1f1f1f;
+}
+
+.chat-text {
+  color: #fff;
+  font-size: 16px;
+}
+
+.username-text {
+  color: red;
+  font-size: 14px;
+}
+
+.div-block-11 {
+  padding: 40px;
+}
+
+.message-div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.chatform {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.chatform-block {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.chat-send-button {
+  width: 100px;
+  border-radius: 100px;
+  background-color: #bd0d0d;
+}
+
+.chattextfield {
+  border: 1px none #000;
+  border-radius: 100px;
+  background-color: #444;
+}
+
 @media screen and (max-width: 991px) {
   .dropdown-list {
     margin-right: 18px;
@@ -1471,7 +1534,7 @@ a {
 
   .menu-dropdown-link {
     display: block;
-    font-family: Arial;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .aboutmediv {
@@ -1604,7 +1667,7 @@ a {
   }
 
   .aboutme-specialize-i2-text {
-    font-family: Arial;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .text-block-8 {
@@ -1714,7 +1777,7 @@ a {
     width: 100%;
     height: 90vh;
     opacity: 1;
-    font-family: Arial;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .traits-div {
@@ -1753,7 +1816,7 @@ a {
   }
 
   .traits-big-text-copy {
-    font-family: Arial;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   .traits-text1-div {

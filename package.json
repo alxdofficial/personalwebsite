@@ -2,6 +2,7 @@
   "name": "personalwebsite",
   "version": "1.0.0",
   "dependencies": {
-    "@peertube/embed-api": "0.0.5"
+    "@peertube/embed-api": "0.0.5",
+    "socket.io": "^4.5.1"
   }
 }

@@ -1,5 +1,8 @@
 from flask import Flask
 from flask import request, render_template, flash, redirect
+
+from flask_socketio import SocketIO
+
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 app = Flask(__name__)
@@ -9,11 +12,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://alexremote:Alex020109u!m@192.16
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+socketio = SocketIO(app,cors_allowed_origins='*')
+
 @app.route('/',methods = ['GET'])
 def index():
     return render_template('index.html')
 
+
 from other_routes import *
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    socketio.run(app, debug=True)
