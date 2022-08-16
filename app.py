@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://alexremote:Alex020109u!m@192.16
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-socketio = SocketIO(app,cors_allowed_origins='*')
+socketio = SocketIO(app,cors_allowed_origins='*',async_mode='eventlet')
 
 @app.route('/',methods = ['GET'])
 def index():
