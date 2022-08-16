@@ -41,13 +41,15 @@
       <script src="/static/js/socket.io.js"></script>
 
     <script>
-        const socket = io('/chatdemo');
+        const socket = io();
         socket.on( 'connect', function() {
             socket.emit('user-connected', {name: 'Alexuser'})
         })
 
         socket.on('new-user-joined', function (msg) {
-            document.querySelector(".chat-text").innerHTML = "new user joined"
+            console.log('new user')
+             $('.message-div').append('<div style="margin-top: 15px" class="username-text">Alex1</div> <div class="chat-text">new usr joined</div>' )
+            {#document.querySelector(".chat-text").innerHTML = "new user joined"#}
         })
     </script>
 
