@@ -1827,4 +1827,16 @@ a {
     padding-right: 20px;
     padding-left: 10px;
   }
+
+  .div-block-11 {
+    padding: 20px;
+  }
+
+  .chatform {
+    width: 80%;
+  }
+
+  .chat-div {
+    width: 100%;
+  }
 }
