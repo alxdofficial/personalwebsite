@@ -1104,6 +1104,7 @@ a {
   margin-bottom: 10px;
   padding-top: 10px;
   padding-right: 5px;
+  opacity: 1;
 }
 
 .chatform {
@@ -1437,6 +1438,13 @@ a {
   width: 35px;
   opacity: 0.5;
   cursor: pointer;
+}
+
+.roomname-text-selected {
+  opacity: 0.9;
+  color: #e7e7e7;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 991px) {

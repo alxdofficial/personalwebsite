@@ -45,10 +45,10 @@
             {%  for room in chatrooms %}
           <div class="roominfo-div">
             <a id="{{ room.id }}" href="#" class="room-info-linkblock w-inline-block"></a>
-            <div class="roomname-text">{{ room.roomname }}</div>
+            <div class="roomname-text" id="{{ room.id }}roomname">{{ room.roomname }}</div>
             <div class="room-details-div">
-              <div class="room-details-text">{{ room.mostrecentmessagetext }}</div>
-              <div class="room-details-text2">{{ room.mostrecentmessagetime }}</div>
+              <div class="room-details-text" id="{{ room.id }}recentmessage">{{ room.mostrecentmessagetext }}</div>
+              <div class="room-details-text2" id="{{ room.id }}recentmessagetime">{{ room.mostrecentmessagetime }}</div>
             </div>
           </div>
             {%  endfor %}
@@ -98,20 +98,63 @@
         socket.on('display-new-user-joined', function (json) {
             $('.message-div').append('<div class="chat-div"><div class="username-text">'+ json.name + '</div><div class="chat-text">[just joined the chat]</div></div>')
         })
-        {# process sending chat #}
-        var roomid = '{{ room.id }}'
+        {#retrieving user data from jinja templates#}
+        var currentlyonroomid = '{{ room.id }}'
         var userid = '{{ user.id }}'
         var username = '{{ user.name }}'
+        var currentroomcutofftime = '{{ currentroomcutofftime }}'
+        {#indicate which room is selected#}
+        document.getElementById(currentlyonroomid + 'roomname').className = 'roomname-text-selected'
+        {# process sending chat #}
         document.forms['chat-form'].onsubmit = function(){
             console.log('client: someone sent a chat')
             var messagetext = document.getElementById('chattext').value
             document.getElementById('chattext').value = ''
-            socket.emit('chat-sent',{'roomid':roomid,'userid':userid,'username':username,'messagetext':messagetext})
+            socket.emit('chat-sent',{'roomid':currentlyonroomid,'userid':userid,'username':username,'messagetext':messagetext})
         }
 
         {#display any new messages sent by users, or if #}
         socket.on('display-new-messages', function (json) {
+            var listofmessages = json.messages
+            for (var i in listofmessages){
+                var fromusername = json.messages[i].username
+                var messagetext = json.messages[i].messagetext
+                var roomid = json.messages[i].roomid
+                var timesent = json.messages[i].timesent
+                {#only add message to display if user is currently on this room, this is
+                neccasary because messages from a room that is not ccurently on is still displayed on the room divs#}
+                if (currentlyonroomid == roomid) {
+                    $('.message-div').append('<div class="chat-div"><div class="username-text">' + fromusername + '</div><div class="chat-text">' + messagetext + '</div></div>')
+                }
+                {#roomside div info is updated always#}
+                document.getElementById(roomid + 'recentmessage').innerHTML = messagetext
+                document.getElementById(roomid + 'recentmessagetime').innerHTML = timesent
 
+            }
+        })
+
+        {# process another room's div being clicked, by emiting to backend #}
+        $('.room-info-linkblock').click(function(event) {
+            document.getElementById(currentlyonroomid + 'roomname').className = 'roomname-text'
+            var newroomid = this.id
+            currentlyonroomid = newroomid
+            document.getElementById(newroomid + 'roomname').className = 'roomname-text-selected'
+            socket.emit('change-room',{'newroomid':newroomid})
+        })
+
+        socket.on('clear-current-room-display', function () {
+            {#console.log(document.getElementsByClassName('message-div').innerHTML)#}
+            $('.message-div').empty()
+        })
+
+        {#process user click to load earlier texts#}
+        $('.room-info-linkblock').click(function(event) {
+
+        })
+
+        socket.on('change-room-cutoff-time', function (json) {
+            currentroomcutofftime = json.cutofftime
+            console.log(currentroomcutofftime)
         })
 
     </script>
