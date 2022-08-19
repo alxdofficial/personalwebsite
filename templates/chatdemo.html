@@ -94,15 +94,19 @@
             {#console.log(elementid)#}
             document.getElementById(name+'bgdiv').className = 'change-user-background-selected'
         })
-        {#display joined message when new user joins#}
-        socket.on('display-new-user-joined', function (json) {
-            $('.message-div').append('<div class="chat-div"><div class="username-text">'+ json.name + '</div><div class="chat-text">[just joined the chat]</div></div>')
-        })
+
         {#retrieving user data from jinja templates#}
         var currentlyonroomid = '{{ room.id }}'
         var userid = '{{ user.id }}'
         var username = '{{ user.name }}'
         var currentroomcutofftime = '{{ currentroomcutofftime }}'
+
+         {#display joined message when new user joins#}
+{#        socket.on('display-new-user-joined', function (json) {#}
+{#            $('.message-div').append('<div class="chat-div"><div class="username-text">'+ json.name + '</div><div class="chat-text">[just joined the chat]</div></div>')#}
+{#        })#}
+{#        #}
+
         {#indicate which room is selected#}
         document.getElementById(currentlyonroomid + 'roomname').className = 'roomname-text-selected'
         {# process sending chat #}

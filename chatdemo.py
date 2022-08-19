@@ -82,8 +82,8 @@ def handle_user_connected(json,methods=['GET','POST']):
         join_room(socketroomname)
         print('joining socketroom: ' + socketroomname)
     print("clinet signed in: " + request.sid)
-    socketio.emit('display-new-user-joined',{'id':current_user.id,'name':current_user.name,'color':current_user.color,
-                                             'socketroomnames':socketroomnames})
+    # socketio.emit('display-new-user-joined',{'id':current_user.id,'name':current_user.name,'color':current_user.color,
+    #                                          'socketroomnames':socketroomnames})
 
 
 @socketio.on('chat-sent')
