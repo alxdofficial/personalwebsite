@@ -27,7 +27,7 @@ class Chatmessage(db.Model):
     __table_name__ = 'chatmessage'
 
     def __repr__(self):
-        return '<message {}>'.format(self.timesent)
+        return '<message {}>'.format(str(self.timesent) + ' ' + self.messagetext)
 
 
 class Roomassignment(db.Model):

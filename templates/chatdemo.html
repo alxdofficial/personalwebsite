@@ -55,7 +55,7 @@
         </div>
         <div class="roomside-bg"></div>
       </div>
-      <div class="chatside-div"><img src="/static/images/noun-up-5084534-FFFFFF.svg" loading="lazy" alt="" class="image-3">
+      <div class="chatside-div"><img src="/static/images/noun-up-5084534-FFFFFF.svg" loading="lazy" alt="" id="load-earlier-chats-button" class="image-3">
         <div class="message-div">
             {% for message in messages %}
           <div class="chat-div">
@@ -95,11 +95,12 @@
             document.getElementById(name+'bgdiv').className = 'change-user-background-selected'
         })
 
-        {#retrieving user data from jinja templates#}
+        {#setting global params and retrieving user data from jinja templates#}
         var currentlyonroomid = '{{ room.id }}'
         var userid = '{{ user.id }}'
         var username = '{{ user.name }}'
         var currentroomcutofftime = '{{ currentroomcutofftime }}'
+        var islookingatearliertexts = false
 
          {#display joined message when new user joins#}
 {#        socket.on('display-new-user-joined', function (json) {#}
@@ -120,6 +121,7 @@
         {#display any new messages sent by users, or if #}
         socket.on('display-new-messages', function (json) {
             var listofmessages = json.messages
+
             for (var i in listofmessages){
                 var fromusername = json.messages[i].username
                 var messagetext = json.messages[i].messagetext
@@ -128,7 +130,11 @@
                 {#only add message to display if user is currently on this room, this is
                 neccasary because messages from a room that is not ccurently on is still displayed on the room divs#}
                 if (currentlyonroomid == roomid) {
-                    $('.message-div').append('<div class="chat-div"><div class="username-text">' + fromusername + '</div><div class="chat-text">' + messagetext + '</div></div>')
+                    if (json.loadingearlier) {
+                        $('.message-div').prepend('<div class="chat-div"><div class="username-text">' + fromusername + '</div><div class="chat-text">' + messagetext + '</div></div>')
+                    } else {
+                        $('.message-div').append('<div class="chat-div"><div class="username-text">' + fromusername + '</div><div class="chat-text">' + messagetext + '</div></div>')
+                    }
                 }
                 {#roomside div info is updated always#}
                 document.getElementById(roomid + 'recentmessage').innerHTML = messagetext
@@ -152,13 +158,13 @@
         })
 
         {#process user click to load earlier texts#}
-        $('.room-info-linkblock').click(function(event) {
-
+        $('#load-earlier-chats-button').click(function(event) {
+            socket.emit('load-earlier-chats',{'roomid':currentlyonroomid,'currentcutofftime':currentroomcutofftime})
         })
 
         socket.on('change-room-cutoff-time', function (json) {
             currentroomcutofftime = json.cutofftime
-            console.log(currentroomcutofftime)
+            {#console.log(currentroomcutofftime)#}
         })
 
     </script>
