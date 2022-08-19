@@ -69,9 +69,14 @@ def chat_demo(userid):
         chatmessages_.append(Chatmessage_(message.id,User.query.get(message.fromuserid).name,message.messagetext,
                                           message.timesent.strftime("%b %d %H:%M")))
 
+    cutofftime = datetime.utcnow().strftime("%Y/%m/%d %H:%M:%S")
+    print('default cutoff time')
+    if len(messages) > 0:
+        print('cutofftime from earlist loaded text')
+        cutofftime = messages[0].timesent.strftime("%Y/%m/%d %H:%M:%S")
     return render_template('chatdemo.html', user=current_user,chatrooms=chatrooms_,room=defaultroom,
                            messages=chatmessages_,
-                           currentroomcutofftime=messages[0].timesent.strftime("%Y/%m/%d %H:%M:%S"))
+                           currentroomcutofftime=cutofftime)
     #the current room cut off times are used for when a user clicks to load ealier texts. it decides how far back of texts to load
     #when the user changes rooms, the value gets set to utcnow, and each time the user loads more texts, the time decrements
 
