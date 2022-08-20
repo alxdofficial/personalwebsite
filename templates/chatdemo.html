@@ -169,6 +169,103 @@
 
     </script>
 
+  <div class="div-block-11">
+    <div class="description-heading">Pseudo code outline</div>
+    <div class="description-text">Here is a schematic of some of the key functions in my demo. There are helper functions omitted, but this is sufficient to show the relationship between the backend (left) and frontend (right). From here on out, consider this literature not as a tutorial to make a live chat program, but a development note to future self that records things I struggled with or had to ponder about.</div>
+    <a href="#" class="enlargable-image w-inline-block w-lightbox"><img src="/static/images/sockets-diagram4.png" loading="lazy" sizes="(max-width: 479px) 83vw, (max-width: 767px) 60vw, (max-width: 991px) 45vw, 40vw" srcset="/static/images/sockets-diagram4.png 500w, /static/images/sockets-diagram4.png 800w, /static/images/sockets-diagram4.png 1080w" alt="" class="image-4">
+      <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "_id": "example_img",
+      "origFileName": "sockets diagram4.png",
+      "fileName": "sockets diagram4.png",
+      "fileSize": 408668,
+      "height": 1195,
+      "url": "/static/images/sockets-diagram4.png",
+      "width": 1240,
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script>
+    </a>
+    <div class="description-heading">Websockets make it possible</div>
+    <div class="description-text">Websockets allows simultaneous and spontaneous communication between the server and the client. Unlike http, who transports information by requests and responses, a socket is persistent, asynchronous, and bilateral. We will explore asynchronicity in a moment, first see the flow diagram of a typical socket connection:</div>
+    <a href="#" class="enlargable-image w-inline-block w-lightbox"><img src="/static/images/sockets-diagram_1.png" loading="lazy" sizes="(max-width: 479px) 83vw, (max-width: 767px) 60vw, (max-width: 991px) 45vw, 40vw" srcset="/static/images/sockets-diagram_1-p-500.png 500w, /static/images/sockets-diagram_1-p-800.png 800w" alt="" class="image-4">
+      <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "_id": "example_img",
+      "origFileName": "sockets diagram.png",
+      "fileName": "sockets diagram.png",
+      "fileSize": 57909,
+      "height": 960,
+      "url": "/static/images/sockets-diagram.png",
+      "width": 1047,
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script>
+    </a>
+    <div class="description-text">How does a socket connection “know” when it receives a new message? The answer is asynchronous code. Event driven programs and user input are unpredictable. So instead of wasting system resources constantly polling for changes, asynchronous code returns immediately, and resumes execution after an interrupt. Regardless of whether this is implemented using callbacks or threads, the more interesting thing is to look at the silicon level.</div>
+    <a href="#" class="enlargable-image w-inline-block w-lightbox"><img src="/static/images/sockets-diagram2.png" loading="lazy" sizes="(max-width: 479px) 83vw, (max-width: 767px) 60vw, (max-width: 991px) 45vw, 40vw" srcset="/static/images/sockets-diagram2.png 500w, /static/images/sockets-diagram2.png 800w, /static/images/sockets-diagram2.png 1080w" alt="" class="image-4">
+      <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "_id": "example_img",
+      "origFileName": "sockets diagram2.png",
+      "fileName": "sockets diagram2.png",
+      "fileSize": 304000,
+      "height": 825,
+      "url": "/static/images/sockets-diagram2.png",
+      "width": 1484,
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script>
+    </a>
+    <div class="description-text">Processors have a set of interrupt pins that connect to external IO devices, like disks, internet modems, and human input sensors. Before each execution of instruction code the processor checks if any of these pins have been tripped. Each IO device, in our case, the internet modem has a program called interrupt service routine that is stored in memory. When the server’s modem receives packets from a client, it trips the interrupt pins of the CPU. The CPU then looks up the appropriate service routine in memory, which in turn notifies the operating system. The OS will know to notify our server application from the metadata in the packets. Finally, our application receives the packets and resumes running. </div>
+    <div class="description-heading">SQL databse for persistence</div>
+    <a href="#" class="enlargable-image w-inline-block w-lightbox"><img src="/static/images/sockets-diagram3.png" loading="lazy" sizes="(max-width: 479px) 83vw, (max-width: 991px) 73vw, 60vw" srcset="/static/images/sockets-diagram3.png 500w, /static/images/sockets-diagram3.png 800w, /static/images/sockets-diagram3.png 1080w, /static/images/sockets-diagram3.png 1600w, /static/images/sockets-diagram3.png 2000w" alt="" class="image-4-copy">
+      <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "_id": "example_img",
+      "origFileName": "sockets diagram3.png",
+      "fileName": "sockets diagram3.png",
+      "fileSize": 156312,
+      "height": 1219,
+      "url": "/static/images/sockets-diagram3.png",
+      "width": 2126,
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script>
+    </a>
+    <div class="description-text">Here is the database relationship diagram, and here&#x27;s some important points: The room-assignments table is used to retrieve all the rooms a user is added to, and this implements a ‘many to many’ relationship. Chat room table contains a column for socketio room id. Socket io rooms are a way to selectively send information to connected clients. For example, only users added to a room should receive new messages in that room, while only the user requesting to load earlier messages in a room should receive the queried messages. It is crucial that a room like system is implemented in the backend, because clients can temper with the frontend javascript, and join rooms they aren&#x27;t added to. <br><br>This database is designed with performance in mind by using indexes on primary keys. Let&#x27;s talk briefly about indexes, how they work, and how I chose to query to maximize performance. Indexes are conceptually a table of contents. If a book has a million pages, and I’m looking for one chapter, it&#x27;s far quicker to find the page number of my chapter than to look through every page in the book.<br><br>But in some ways, this is an oversimplification. What if I wanted to query all the messages before september 1 2022 and also contain the user id ‘12345’, will indexing improve my performance as it did before? To answer this we need to understand how indexes actually work. In the case of Mysql, the data entries of our DB are stored in a B+tree. Each node of the B+tree contains the primary key as the key, and the actual column data of an entry as value. Only leaf nodes store data, and non-leaf nodes are repeated. Also, leaf nodes are connected for easy traversal of adjacent data, and this is useful because B+trees are sorted in nature.</div>
+    <a href="#" class="enlargable-image w-inline-block w-lightbox"><img src="/static/images/bplustreeSearch-1.png" loading="lazy" sizes="(max-width: 479px) 83vw, (max-width: 991px) 73vw, 60vw" srcset="/static/images/bplustreeSearch-1.png 500w, /static/images/bplustreeSearch-1.png 800w, /static/images/bplustreeSearch-1.png 1080w" alt="" class="image-4-copy">
+      <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "_id": "example_img",
+      "origFileName": "bplustreeSearch-1.png",
+      "fileName": "bplustreeSearch-1.png",
+      "fileSize": 82746,
+      "height": 419,
+      "url": "/static/images/bplustreeSearch-1.png",
+      "width": 1437,
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script>
+    </a>
+    <div class="description-text">Indexes are stored in normal b-trees, and each node contains the data of an entry as the key, and the primary key as the value. For example, an index b-tree for the send time of messages will have a node whose key is “september 1 2020”, and value is “1bsh3fj”. Since b-tree look ups take O(log(n)) time, a query looking for a message sent on september 1 will take log(n) to find the primary key in the index, and another log(n) for looking up the primary key in the data B+tree.<br><br>Now suppose we want to get all the chats on september 1 sent by user “12345”. We first go to the sent-time index and take log(n) to find september 1. And if there are multiple september 1s, it wouldn&#x27;t be too long to find all the neighboring nodes because b-trees are much wider than they are deep, similar nodes are neighboring, and all leaf nodes are on the same level. Now for each found node, we need to find the actual data in the b+tree (O(nlog(n))), then decide for each result whether it&#x27;s sent by our desired user. Now, a key observation is that in a popular chat app, there will be many texts sent on september 1st, but very few of them will be from our desired user. So it is best to query for our user first using the index on user_id, and minimize the query return size. This way we minimize the number of neighboring nodes to find, and the number of results to check for send time. We reduce n in nlog(n) which helps performance.</div>
+  </div>
+
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62f0a9bcac1acae2293389f6" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="/static/js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->

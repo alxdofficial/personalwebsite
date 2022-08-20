@@ -119,7 +119,7 @@ def handle_change_room(json, methods=['GET', 'POST']):
 
         # get the last message send time in this room, find 10 earlier chats including it.
         cutofftime = Chatmessage.query.get(newroom.mostrecentmessageid).timesent
-        messages = query_messages_before_cutoff_time(newroom.id, cutofftime)
+        messages = query_messages_before_cutoff_time(newroom.id, cutofftime,querysize=4)
         # we need to update the cutoff time to the earliest chat send time that we loaded, so that when the user asks to
         # more chats, we dont load repeatedly. if no messages come up, it is likely that no correct user is logged in,
         # because all rooms have at least one message, and we are querying all messages
