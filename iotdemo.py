@@ -4,7 +4,7 @@ from flask import request, render_template, flash, redirect, jsonify
 @app.route('/iotdemo', methods = ['GET','POST'])
 def iotdemo():
     from models import Iotdevice,Iotinterface
-    return 'fhfhfh'
+    return "iotdemo"
 
 @app.route('/report-to-server', methods = ['POST'])
 def report_to_server():
