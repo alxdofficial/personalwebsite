@@ -34,11 +34,12 @@ def report_to_server():
         db.session.commit()
         return "updating existing devices ip: " + deviceid
 
-@app.route('/iotreceivenumdata', methods = ['GET','POST'])
+@app.route('/iot-receive-num-data', methods = ['GET','POST'])
 def receive_num_data():
     json = request.json
-    id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
     name = json['name']
     value = json['value']
     deviceid = json['deviceid']
     timestamp = datetime.utcnow()
+
+    print(name + ": " + value + ", " + timestamp)
