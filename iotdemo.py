@@ -8,11 +8,11 @@ def iotdemo():
     print("acessed")
     return "iotdemo"
 
-@app.route('/report-to-server/<deviceid>', methods = ['GET','POST'])
-def report_to_server(deviceid):
+@app.route('/report-to-server', methods = ['GET','POST'])
+def report_to_server():
     from models import Iotdevice,Iotinterface
-    content = request.get_json()
-    print(deviceid)
+    content = request.json
+    deviceid = content['deviceid']
     return "json post sucess from: " + deviceid
 
 
