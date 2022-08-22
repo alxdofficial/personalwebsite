@@ -13,6 +13,7 @@ def report_to_server(deviceid):
     from models import Iotdevice,Iotinterface
     content = request.get_json()
     print(deviceid)
+    return "json post sucess from: " + deviceid
 
 
 
