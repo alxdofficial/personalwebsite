@@ -7,10 +7,11 @@ def iotdemo():
     # test
     return "iotdemo"
 
-@app.route('/report-to-server', methods = ['POST'])
+@app.route('/report-to-server', methods = ['GET','POST'])
 def report_to_server():
     from models import Iotdevice,Iotinterface
     content = request.get_json()
+    print(content)
     deviceid = content['deviceid']
     print(deviceid)
 
