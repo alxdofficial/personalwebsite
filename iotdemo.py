@@ -40,6 +40,6 @@ def receive_num_data():
     name = json['name']
     value = json['value']
     deviceid = json['deviceid']
-    timestamp = datetime.utcnow()
+    timestamp = datetime.utcnow().strftime("%Y/%m/%d %H:%M:%S")
 
     print(name + ": " + value + ", " + timestamp)
