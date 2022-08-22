@@ -22,6 +22,7 @@ def index():
 
 
 from chatdemo import *
+from iotdemo import *
 
 @login_manager.user_loader
 def load_user(user_id):

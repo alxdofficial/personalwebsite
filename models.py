@@ -53,6 +53,41 @@ class Chatroom(db.Model):
     def __repr__(self):
         return '<chatroom {}>'.format(self.roomname)
 
+class Iotdevice(db.Model):
+    id = db.Column(db.VARCHAR(10), primary_key=True, unique=True, index=True)
+    name = db.Column(db.VARCHAR(70))
+    currentip = db.Column(db.VARCHAR(20))
+    groupid = db.Column(db.VARCHAR(10), index=True)
+    kind = db.Column(db.VARCHAR(35))
+    __table_args__ = {'extend_existing': True}
+    __table_name__ = 'iotdevice'
+
+    def __repr__(self):
+        return '<iotdevice {}>'.format(self.name)
+
+class Iotinterface(db.Model):
+    id = db.Column(db.VARCHAR(10), primary_key=True, unique=True, index=True)
+    name = db.Column(db.VARCHAR(70))
+    deviceid = db.Column(db.VARCHAR(10), index=True)
+    type = db.Column(db.VARCHAR(35))
+    __table_args__ = {'extend_existing': True}
+    __table_name__ = 'iotinterface'
+
+    def __repr__(self):
+        return '<interface {}>'.format(self.name)
+
+class Iotnumericaldata(db.Model):
+    id = db.Column(db.VARCHAR(10), primary_key=True, unique=True, index=True)
+    name = db.Column(db.VARCHAR(70))
+    value = db.Column(db.FLOAT())
+    deviceid = db.Column(db.VARCHAR(10), index=True)
+    timestamp = db.Column(db.DateTime(timezone=False),default=datetime.utcnow())
+    __table_args__ = {'extend_existing': True}
+    __table_name__ = 'numerical data'
+
+    def __repr__(self):
+        return '<num data {}>'.format(self.value)
+
 
 # db.create_all()
 
