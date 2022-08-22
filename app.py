@@ -20,6 +20,12 @@ socketio = SocketIO(app,cors_allowed_origins='*')
 def index():
     return render_template('index.html')
 
+@app.route('/dbinit')
+def dbinit():
+    from models import User,Chatroom,Chatmessage,Roomassignment,\
+        Iotdevice,Iotinterface,Iotnumericaldata
+    testdb = Roomassignment()
+    return "db init ran"
 
 from chatdemo import *
 from iotdemo import *

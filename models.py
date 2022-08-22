@@ -89,5 +89,5 @@ class Iotnumericaldata(db.Model):
         return '<num data {}>'.format(self.value)
 
 
-# db.create_all()
+db.create_all()
 
