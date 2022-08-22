@@ -43,3 +43,4 @@ def receive_num_data():
     timestamp = datetime.utcnow().strftime("%Y/%m/%d %H:%M:%S")
 
     print(name + ": " + value + ", " + timestamp)
+    return "received data"
