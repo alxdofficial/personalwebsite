@@ -22,7 +22,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
 </head>
-<body class="body-3">
+<body class="body-3" style="margin-top: 40px">
 <script>
     const socket = io()
         socket.on('connect', function() {
@@ -76,14 +76,14 @@
         socket.on('update-temp-chart', function (json) {
             var newtime = json.time
             var newtemp = parseFloat(json.temp).toFixed(1)
-            tempchart.data.labels.push(newtime)
-            tempchart.data.datasets[0].data.push(newtemp);
             entrycounttemp++
             console.log(entrycounttemp)
             if (entrycounttemp >= maxentries) {
                 tempchart.data.labels.shift()
                 tempchart.data.datasets[0].data.shift()
             }
+            tempchart.data.labels.push(newtime)
+            tempchart.data.datasets[0].data.push(newtemp);
             tempchart.update()
             document.getElementById('temptext').innerHTML = "Temperature is " + newtemp + " C"
         })
@@ -131,14 +131,14 @@
             socket.on('update-hum-chart', function (json) {
             var newtime = json.time
             var newhum = parseFloat(json.hum).toFixed(1)
-            humchart.data.labels.push(newtime)
-            humchart.data.datasets[0].data.push(newhum);
             entrycounthum++
             console.log(entrycounttemp)
             if (entrycounthum >= maxentries) {
                 humchart.data.labels.shift()
                 humchart.data.datasets[0].data.shift()
             }
+            humchart.data.labels.push(newtime)
+            humchart.data.datasets[0].data.push(newhum);
             humchart.update()
             document.getElementById('humtext').innerHTML = "Humidity is " + newhum + "%"
         })
