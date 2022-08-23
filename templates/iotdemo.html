@@ -22,7 +22,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
 </head>
-<body class="body-3" style="margin-top: 40px">
+<body class="body-3" style="margin-top: 20px">
 <script>
     const socket = io()
         socket.on('connect', function() {
@@ -45,7 +45,7 @@
             const ctx1 = document.getElementById('tempchart');
             const ctxcontext = ctx1.getContext('2d');
             var tempchartgradient = ctxcontext.createLinearGradient(0, 0, 0, 350);
-            tempchartgradient.addColorStop(0, 'rgba(196, 119, 47,.8)');
+            tempchartgradient.addColorStop(0, 'rgba(196, 119, 47,.85)');
             tempchartgradient.addColorStop(1, 'rgba(196, 119, 47,0)');
             const tempchart = new Chart(ctx1, {
                 type: 'line',
