@@ -1513,7 +1513,7 @@ a {
 }
 
 .body-3 {
-  background-image: linear-gradient(139deg, #2a2d2e, #202324);
+  background-image: linear-gradient(139deg, #272829, #1f2324);
 }
 
 .div-block-13 {
@@ -1593,7 +1593,7 @@ a {
   width: 100%;
   height: 100%;
   max-height: none;
-  background-color: #aeb6b6;
+  background-color: #b0b2b2;
   -webkit-filter: blur(3px);
   filter: blur(3px);
 }
@@ -1809,6 +1809,10 @@ a {
 
   .chat-text {
     font-size: 14px;
+  }
+
+  .username-text {
+    color: #f7c8a8;
   }
 
   .chat-maindiv-i1 {
