@@ -8,9 +8,7 @@ from datetime import datetime
 @app.route('/iotdemo', methods = ['GET','POST'])
 def iotdemo():
     from models import Iotdevice,Iotinterface
-    # test
-    print("acessed")
-    return "iotdemo"
+    return render_template("iotdemo.html")
 
 @app.route('/report-to-server', methods = ['GET','POST'])
 def report_to_server():
@@ -40,7 +38,12 @@ def receive_num_data():
     name = json['name']
     value = json['value']
     deviceid = json['deviceid']
-    timestamp = datetime.utcnow().strftime("%Y/%m/%d %H:%M:%S")
+    timestamp = datetime.utcnow().strftime("%H:%M:%S")
 
     print(name + ": " + value + ", " + timestamp)
+
+    if name == "temp celsius":
+        socketio.emit('update-temp-chart', {'temp':value,'time':timestamp})
+    elif name == "humidity":
+        socketio.emit('update-hum-chart', {'hum':value,'time':timestamp})
     return "received data"

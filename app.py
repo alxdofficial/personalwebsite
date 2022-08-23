@@ -23,7 +23,7 @@ def index():
 @app.route('/dbinit')
 def dbinit():
     from models import User,Chatroom,Chatmessage,Roomassignment,\
-        Iotdevice,Iotinterface,Iotnumericaldata
+        Iotdevice,Iotinterface
     testdb = Roomassignment()
     return "db init ran"
 

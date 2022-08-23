@@ -1468,7 +1468,7 @@ a {
 }
 
 .description-heading {
-  width: 85%;
+  width: 80%;
   margin-top: 40px;
   margin-bottom: 40px;
   color: #e7e7e7;
@@ -1477,6 +1477,8 @@ a {
 }
 
 .description-text {
+  position: relative;
+  z-index: 3;
   width: 70%;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1508,6 +1510,103 @@ a {
 .image-4-copy {
   width: 60%;
   border-radius: 5px;
+}
+
+.body-3 {
+  background-image: linear-gradient(139deg, #2a2d2e, #202324);
+}
+
+.div-block-13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.graph-block {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 600px;
+  margin-top: 0px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.graph-div-outer {
+  position: relative;
+  width: 80%;
+  height: auto;
+  max-width: 1500px;
+  min-height: 0px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  background-color: transparent;
+}
+
+.graph-div {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 280px;
+  margin-top: -10px;
+}
+
+.graph-bg {
+  position: absolute;
+  left: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  width: 80%;
+  height: 700px;
+}
+
+.graphbg {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: auto;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  background-color: #aeb6b6;
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+}
+
+.graph-title {
+  position: relative;
+  z-index: 3;
+  width: 70%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  color: #2c2c2c;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 991px) {
@@ -1730,7 +1829,7 @@ a {
   }
 
   .description-heading {
-    width: 100%;
+    width: 80%;
     margin-bottom: 20px;
     font-size: 20px;
   }
@@ -1745,6 +1844,23 @@ a {
 
   .image-4-copy {
     width: 80%;
+  }
+
+  .div-block-13 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-right: 0px;
+    padding-left: 0px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .graph-title {
+    width: 100%;
   }
 }
 
@@ -1936,12 +2052,25 @@ a {
     font-size: 12px;
   }
 
+  .description-heading {
+    width: 90%;
+  }
+
   .image-4 {
     width: 70%;
   }
 
   .image-4-copy {
     width: 70%;
+  }
+
+  .div-block-13 {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .graph-div-outer {
+    width: 90%;
   }
 }
 
@@ -2427,5 +2556,13 @@ a {
 
   .image-4-copy {
     width: 100%;
+  }
+
+  .graph-block {
+    margin-top: 0px;
+  }
+
+  .graph-title {
+    font-size: 14px;
   }
 }
