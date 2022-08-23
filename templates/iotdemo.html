@@ -45,7 +45,7 @@
             const ctx1 = document.getElementById('tempchart');
             const ctxcontext = ctx1.getContext('2d');
             var tempchartgradient = ctxcontext.createLinearGradient(0, 0, 0, 350);
-            tempchartgradient.addColorStop(0, 'rgba(196, 119, 47,1)');
+            tempchartgradient.addColorStop(0, 'rgba(196, 119, 47,.8)');
             tempchartgradient.addColorStop(1, 'rgba(196, 119, 47,0)');
             const tempchart = new Chart(ctx1, {
                 type: 'line',
