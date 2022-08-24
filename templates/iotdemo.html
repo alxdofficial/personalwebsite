@@ -147,6 +147,67 @@
       <div class="graphbg"></div>
     </div>
   </div>
+
+    <div class="description-div">
+    <div class="description-heading">Pseudo code outline</div>
+    <div class="description-text">Here is the pseudo code to the demo, it demonstrates the interactions between the hardware (left), backend (middle) and frontend (right).</div>
+    <a href="#" class="enlargable-image w-inline-block w-lightbox"><img src="/static/images/iot-diagram1.png" loading="lazy" srcset="/static/images/iot-diagram1.png 500w, /static/images/iot-diagram1.png 800w, /static/images/iot-diagram1.png 1080w, /static/images/iot-diagram1.png 1600w" sizes="(max-width: 479px) 90vw, 70vw" alt="" class="image-4-2">
+      <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "_id": "example_img",
+      "origFileName": "sockets diagram4.png",
+      "fileName": "sockets diagram4.png",
+      "fileSize": 408668,
+      "height": 1195,
+      "url": "/static/images/sockets-diagram4.png",
+      "width": 1240,
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script>
+    </a>
+    <div class="description-text">Here are a few key aspects to the code. The espressif esp8266 arduino has only one core, and without a threading library it is essential to make sure no functions block the execution. Neither the http client nor server libraries are asynchronous, so function calls to either must time out after some specified time. Secondly, on a microcontroller that doesn&#x27;t have a lot of memory, passing parameters by value instead of memory allocating can save one a lot of headaches by minimizing memory leaks. Lastly, one of the most important processes is to update the home server with the current local IP of the IOT device. Local IP addresses are dynamically assigned and if hard coded into the server application, IOT devices can randomly become unreachable.</div>
+    <div class="description-heading">Database</div>
+    <a href="#" class="enlargable-image w-inline-block w-lightbox"><img src="/static/images/iot-diagram2.png" loading="lazy" srcset="/static/images/iot-diagram2.png 500w, /static/images/iot-diagram2.png 800w, /static/images/iot-diagram2.png 1080w" sizes="(max-width: 479px) 90vw, (max-width: 767px) 70vw, (max-width: 991px) 50vw, 40vw" alt="" class="image-4">
+      <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "_id": "example_img",
+      "origFileName": "sockets diagram4.png",
+      "fileName": "sockets diagram4.png",
+      "fileSize": 408668,
+      "height": 1195,
+      "url": "/static/images/sockets-diagram4.png",
+      "width": 1240,
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script>
+    </a>
+    <div class="description-text">You may be wondering what the interface DB table is for, and it&#x27;s actually to reduce redundancy. Think of a factory installed with 3 types of lights. There&#x27;s the normal lamps that require a 1 or 0 to control on and off. there&#x27;s rgb lights in the staff lounge that use a float between 1 and 0 for brightness, and a float from 0 to 360 for hue. Finally there&#x27;s white balance adjustable lights for the machine vision cameras that require a float from 1 to 0 for dimming, and another from 2500 to 8000 to control the color temperature. Now if there was only the discriminator, “kind”, in the devices table, querying all three types of lights would require 3 queries. On the other hand, if we don&#x27;t specify the device type, we have no way of knowing which UI to display on the front end for each light. So with interfaces like “rgb lamp” or  “cool-warm lamp”, we just need to look up which interface each device is registered to, and load the UI appropriately. <br><br>The choice of using a xml document for each IOT device is interesting. This isn’t implemented in the demo by the way, but this is how I would do it. Imagine we just used a normal mysql database to store the contemporary temperature and humidity of a room. Each time a user wants to see the 50 most recent temperature records, we need to filter for the temperature sensor’s device id, since many devices share the table (log(n)). Then we have to find every entry with that device id, since this index tree doesn&#x27;t know about time (O(n)). And only then can we sort by time (nlog(n)). This is slow and we have to do it every time a user logs on. Furthermore, filtering by time first doesn&#x27;t help because with thousands of sensors measuring many times a second, n would still be huge. <br><br>Now consider the xml file for each device. This approach is best for when one will be sorting by time exclusively. Finding this file for any device is almost instant, because if we create a folder for each letter of the alphabet, and perhaps one more round of folders in each folder, we can look up the file very quickly. Once we find it, adding or reading a new entry is just going to the bottom of the file, which we can do in O(1) if we keep track of the last read row number. Since the data is added chronologically, we don&#x27;t need any additional sorting. A bonus for this approach is efficiency when we delete irrelevant data. Suppose we only want to keep 3 months of data. When the time is up, we just mark the top of the file as the next write position (O(1)). As new data comes in, we overwrite the old data without the need for any dedicated deletion. </div>
+    <div class="description-heading">Secure by local hosting</div>
+    <a href="#" class="enlargable-image w-inline-block w-lightbox"><img src="/static/images/iot-diagram3.png" loading="lazy" srcset="/static/images/iot-diagram3.png 500w, /static/images/iot-diagram3.png 800w, /static/images/iot-diagram3.png 1080w" sizes="(max-width: 479px) 90vw, (max-width: 767px) 70vw, (max-width: 991px) 50vw, 40vw" alt="" class="image-4">
+      <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "_id": "example_img",
+      "origFileName": "sockets diagram4.png",
+      "fileName": "sockets diagram4.png",
+      "fileSize": 408668,
+      "height": 1195,
+      "url": "/static/images/sockets-diagram4.png",
+      "width": 1240,
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script>
+    </a>
+    <div class="description-text">Say we had a security camera in our living room, it would be extremely important that this footage is not leaked anywhere. Normally we just use asymmetric encryption, as in encrypting our footage with the public key of the server, but this is highly taxing on memory. This may simply be unviable with some memory limited microcontrollers, and it is typically solved in the following two ways. <br><br>The manufacturer of the IOT can configure each device with a unique secret key, which the manufacturer keeps record of along with the devices serial number. Before transmitting to the manufacturers server, the consumer first broadcasts the unencrypted serial code, and then encrypts the data using their secret key (symmetrical and thus less memory intensive). The server will then look up the secret key using the serial code and decode the data. The major issue with this is that the secret key can be leaked prior to delivering to the consumer. <br><br>The other way this is solved is by having a computationally more powerful hub. The iot devices connect to the hub unencrypted or symmetrically encrypted, then the hub transmits the message using asymmetric encryption to the server. The problem with this approach is that if symmetric encryption is used, the key would still need to be distributed from the hub to the IOT device securely, and most consumer grade implementations simply transmit the key raw.<br><br>My solution is similar to the second route, but more customizable. In the demo, I chose to not use any encryption on the specific IOT devices, because I can guarantee no one is eavesdropping on the LAN routers at home. If a symmetrical encryption method is necessary, I can personally program the secret key into the iot device, so no possibility of leaking the key. Once the data is received by the home server and a response is prepared to be sent to a user, the data passes through a nginx reverse proxy, who encrypts it using SSL/TLS. SSL is very important in gaining the trust of foreign users, because a private server’s SSL key can be chained to a certification authority’s key, which in turn is chained to a root key. All browsers store a collection of root keys that are guaranteed to be safe, and if it discovers a root key by following the key chain from the private server, it will not display any ugly warning messages. </div>
+  </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62f0a9bcac1acae2293389f6" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="/static/js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->

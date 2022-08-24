@@ -76,5 +76,5 @@ class Iotinterface(db.Model):
     def __repr__(self):
         return '<interface {}>'.format(self.name)
 
-db.create_all()
+# db.create_all()
 
