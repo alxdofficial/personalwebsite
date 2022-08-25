@@ -14,9 +14,11 @@ def mldemo():
 def handle_form(json, methods = ['GET', 'POST']):
     inputstring = json['inputasstring']
     print(inputstring)
-    responseraw = send_data_to_weka(inputstring)
+    # add a random id to inputstring cuz my weka package wants one since it was designed for batch classifcation
+    responseraw = send_data_to_weka("xabc," + inputstring)
     displayresponse = responseraw.replace("Server: ", "").replace("#end","")
     print(displayresponse)
+    socketio.emit('show-ml-result',{'result':displayresponse})
 
 def send_data_to_weka(inputstring):
     # Create a TCP/IP socket
@@ -27,10 +29,9 @@ def send_data_to_weka(inputstring):
     client.connect(server_address)
     try:
         # Send data
-        classifyinginput = '1,cloth example1,white,long,thin,low,mid,yes,1,hourglass,stretch,no,cotton,tight,solid,low'
         print("trying to send: ")
-        print(classifyinginput)
-        client.send(bytes(classifyinginput+'\n','ascii'))
+        print(inputstring)
+        client.send(bytes(inputstring+'\n','ascii'))
         print('sent')
 
         # Look for the response
