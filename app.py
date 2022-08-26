@@ -20,6 +20,11 @@ socketio = SocketIO(app,cors_allowed_origins='*')
 def index():
     return render_template('index.html')
 
+@app.route('/demomenu',methods = ['GET'])
+def demomenu():
+    return render_template('demo menu.html')
+
+
 @app.route('/dbinit')
 def dbinit():
     from models import User,Chatroom,Chatmessage,Roomassignment,\
