@@ -10,6 +10,11 @@ def iotdemo():
     from models import Iotdevice,Iotinterface
     return render_template("iotdemo.html")
 
+@app.route('/iottest', methods = ['GET','POST'])
+def test():
+    print("connected")
+    return "connected"
+
 @app.route('/report-to-server', methods = ['GET','POST'])
 def report_to_server():
     from models import Iotdevice,Iotinterface
@@ -18,7 +23,7 @@ def report_to_server():
     name = json['name']
     kind = json['kind']
     deviceip = json['currentip']
-
+    print('connected')
     # check if this is the first time this device is reporting
     devicequery = Iotdevice.query.get(deviceid)
     if (devicequery is None):
