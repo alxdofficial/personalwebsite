@@ -24,6 +24,9 @@ def index():
 def demomenu():
     return render_template('demo menu.html')
 
+@app.route('/vfxdemo', methods = ['GET'] )
+def vfxdemo():
+    return render_template('vfxdemo.html')
 
 @app.route('/dbinit')
 def dbinit():

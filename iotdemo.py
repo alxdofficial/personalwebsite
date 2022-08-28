@@ -13,7 +13,7 @@ def iotdemo():
 @app.route('/iottest', methods = ['GET','POST'])
 def test():
     print("connected")
-    return "connected"
+    return "test"
 
 @app.route('/report-to-server', methods = ['GET','POST'])
 def report_to_server():

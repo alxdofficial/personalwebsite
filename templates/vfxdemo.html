@@ -1,0 +1,151 @@
+<!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
+<!--  Last Published: Sat Aug 27 2022 21:14:18 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="63085ca18d5d0998339edd7f" data-wf-site="62f0a9bcac1acae2293389f6">
+<head>
+  <meta charset="utf-8">
+  <title>Visualeffects</title>
+  <meta content="Visualeffects" property="og:title">
+  <meta content="Visualeffects" property="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="/static/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/static/css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="/static/css/personal-website-e88243.webflow.css" rel="stylesheet" type="text/css">
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="/static/images/webclip.png" rel="apple-touch-icon">
+  <script src="https://unpkg.com/@peertube/embed-api/build/player.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body class="body-4">
+  <div id="viewer-outer" class="viewer-outer-closed">
+    <div class="vfx-close-menu"><img onclick="closevfxviewer()" src="/static/images/noun-close-5115237-FFFFFF.png" loading="lazy" alt="" class="vfx-close-button-img" style="cursor: pointer;"></div>
+    <div class="viewer-inner" id="viewer-div">
+      <iframe class="vfxviewer" title="personal website intro animation" src="https://alxdcontentstream.ddns.net/videos/embed/b795462e-e0ec-43b2-864b-3bdb94a50f92?muted=1&loop=1&controlBar=0&api=1&title=0&warningTitle=0&bigPlayBackgroundColor=rgba(100, 100, 100, 0)&foregroundColor=rgba(100, 100, 100, 0)" style="width: 100%;height:55.6vw;" frameborder="0" allow="autoplay" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+    </div>
+  </div>
+  <script>
+    function openvfxviewer (self){
+        var outerdiv = document.getElementById('viewer-outer')
+        outerdiv.className = "viewer-outer-open"
+        var width = document.getElementById('viewer-div').offsetWidth
+        var height = 0.5625 * width
+
+        var id = self.getAttribute("data-vfx-source")
+        document.getElementById("viewer-div").innerHTML = '<iframe class="vfxviewer w-video w-embed" title="personal website intro animation" src="https://alxdcontentstream.ddns.net/videos/embed/' + id  + '?muted=1&loop=1&controlBar=0&api=1&title=0&warningTitle=0&bigPlayBackgroundColor=rgba(100, 100, 100, 0)&foregroundColor=rgba(100, 100, 100, 0)" style="width: 100%;height:' + height + 'px;position: relative;z-index: 2" frameborder="0" allow="autoplay" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>'
+        let player = new PeerTubePlayer(document.querySelector('.vfxviewer'))
+        player.play()
+    }
+
+    function closevfxviewer () {
+        let player = new PeerTubePlayer(document.querySelector('.vfxviewer'))
+        player.pause()
+        var outerdiv = document.getElementById('viewer-outer')
+        outerdiv.className = "viewer-outer-closed"
+        document.getElementById("viewer-div").innerHTML = ""
+    }
+        </script>
+  <div class="vfxmenudiv">
+    <div class="vfx-menu-heading">Click to view, scroll down for behind the scenes</div>
+    <div class="vfxmenudiv-inner">
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block"  data-vfx-source="64fc6b51-f9f6-4c47-a93c-b42650eb250c"><img src="/static/images/underwatercover_1.2.1.png" loading="lazy" srcset="/static/images/underwatercover_1.2.1-p-500.png 500w, /static/images/underwatercover_1.2.1-p-800.png 800w, /static/images/underwatercover_1.2.1-p-1080.png 1080w, /static/images/underwatercover_1.2.1-p-1600.png 1600w, /static/images/underwatercover_1.2.1.png 1920w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, 18vw" alt="" class="image-6"></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="918c6938-9615-4c8d-af17-f996e14eb809"><img src="/static/images/image-3.png" loading="lazy" srcset="/static/images/image-3-p-500.png 500w, /static/images/image-3-p-800.png 800w, /static/images/image-3-p-1080.png 1080w, /static/images/image-3-p-1600.png 1600w, /static/images/image-3.png 1681w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, (max-width: 9338px) 18vw, 1681px" alt=""></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="5a7361f6-0fd4-438f-a631-a62dd1bb3021"><img src="/static/images/image-2.png" loading="lazy" srcset="/static/images/image-2-p-500.png 500w, /static/images/image-2-p-800.png 800w, /static/images/image-2-p-1080.png 1080w, /static/images/image-2-p-1600.png 1600w, /static/images/image-2.png 1683w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, (max-width: 9350px) 18vw, 1683px" alt=""></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="d873385f-6567-446f-86a9-60eb520ddf64"><img src="/static/images/hummingbird_2.3.1.png" loading="lazy" srcset="/static/images/hummingbird_2.3.1-p-500.png 500w, /static/images/hummingbird_2.3.1-p-800.png 800w, /static/images/hummingbird_2.3.1-p-1080.png 1080w, /static/images/hummingbird_2.3.1.png 1328w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, (max-width: 7811px) 17vw, 1328px" alt=""></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="d578996d-b47f-404a-91b7-2dd36eca86bc"><img src="/static/images/image-5.png" loading="lazy" srcset="/static/images/image-5-p-500.png 500w, /static/images/image-5-p-800.png 800w, /static/images/image-5-p-1080.png 1080w, /static/images/image-5-p-1600.png 1600w, /static/images/image-5.png 1655w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, (max-width: 9194px) 18vw, 1655px" alt=""></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="56da4fc9-b72e-4d22-8b46-e5c480d16e14"><img src="/static/images/image-1.png" loading="lazy" srcset="/static/images/image-1-p-500.png 500w, /static/images/image-1-p-800.png 800w, /static/images/image-1-p-1080.png 1080w, /static/images/image-1-p-1600.png 1600w, /static/images/image-1.png 1783w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, 18vw" alt=""></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="ae1725ac-caf1-453b-b6a8-f4cfd9cf98d9"><img src="/static/images/image-6.png" loading="lazy" srcset="/static/images/image-6-p-500.png 500w, /static/images/image-6-p-800.png 800w, /static/images/image-6-p-1080.png 1080w, /static/images/image-6-p-1600.png 1600w, /static/images/image-6.png 1776w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, 18vw" alt=""></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="bd5e7dbe-b428-48c7-a40c-c1d392f48fe2"><img src="/static/images/image-7.png" loading="lazy" srcset="/static/images/image-7-p-500.png 500w, /static/images/image-7.png 740w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, 18vw" alt=""></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="918c6938-9615-4c8d-af17-f996e14eb809"><img src="/static/images/image-4.png" loading="lazy" srcset="/static/images/image-4-p-500.png 500w, /static/images/image-4-p-800.png 800w, /static/images/image-4-p-1080.png 1080w, /static/images/image-4-p-1600.png 1600w, /static/images/image-4.png 1662w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, (max-width: 9776px) 17vw, 1662px" alt=""></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="ecb673f9-dd14-42c6-8300-f2c635fea4cd"><img src="/static/images/image-8.png" loading="lazy" srcset="/static/images/image-8-p-500.png 500w, /static/images/image-8-p-800.png 800w, /static/images/image-8-p-1080.png 1080w, /static/images/image-8-p-1600.png 1600w, /static/images/image-8.png 1777w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, 18vw" alt=""></a>
+      <a href="#" onclick="openvfxviewer(this)" class="vfx-menu-item w-inline-block" data-vfx-source="fdfff822-7303-481e-8b58-853f3f91e799"><img src="/static/images/image-9.png" loading="lazy" srcset="/static/images/image-9-p-500.png 500w, /static/images/image-9-p-800.png 800w, /static/images/image-9-p-1080.png 1080w, /static/images/image-9-p-1600.png 1600w, /static/images/image-9.png 1777w" sizes="(max-width: 479px) 45vw, (max-width: 991px) 23vw, 18vw" alt=""></a>
+    </div>
+  </div>
+  <div class="vfx-description-div1">
+    <div class="vdx-column-1 w-row">
+      <div class="column-10 w-col w-col-6 w-col-small-small-stack">
+        <div class="vfx-description-heading">Filming, Camera Tracking</div>
+        <div class="vfx-description-text-div1">
+          <div class="vfx-text-bg1"></div>
+          <div class="vfx-description-text">Before any visual effects work can be done, the footage must first be tracked, or the motion of the camera must be estimated. High contrast features are needed for tracking, like the corner of a table, a spot in the wall, or a dedicated tracking marker. To a computer, two groups of pixels are the same feature if one is a translation or scale of the other within a HSL threshold. After the same feature is identified across multiple frames, it becomes a valid tracking point. The computer can then triangulate the camera&#x27;s movement in 3D space using the 2D movement of many tracking points. </div>
+        </div><img src="/static/images/image-13.png" loading="lazy" alt="" class="vfx-img2">
+      </div>
+      <div class="column-11 w-col w-col-6 w-col-small-small-stack"><img src="/static/images/image-10.png" loading="lazy" srcset="/static/images/image-10-p-500.png 500w, /static/images/image-10-p-800.png 800w, /static/images/image-10.png 931w" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 38vw, 39vw" alt="" class="vfx-img-1">
+        <div class="vfx-description-heading2">Rotoscoping</div>
+        <div class="vfx-description-text-div2">
+          <div class="vfx-text-bg1"></div>
+          <div class="vfx-description-text">Sometimes it’s easier not to work with a green screen, but manually demarcating the foreground from the background can be a personal slice of hell, 60 times a second. Luckily, I have already switched most of my rotoscoping to an AI based solution. Runway ML and Davinci Resolve object mask do a decent job in detecting human and animal characters most of the time. When they don’t function the way I need to, I use Boris FX Mocha Pro to manually rotoscope. This is also the step to remove tracking markers using inpainting, as well as any unwanted elements in the footage.</div>
+        </div>
+      </div>
+    </div>
+    <div class="vdx-column-2 w-row">
+      <div class="column-10 w-col w-col-6 w-col-small-small-stack"><img src="/static/images/image-14.png" loading="lazy" srcset="/static/images/image-14-p-500.png 500w, /static/images/image-14-p-800.png 800w, /static/images/image-14-p-1080.png 1080w, /static/images/image-14.png 1464w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 59vw, 49vw" alt="" class="vfx-img3"></div>
+      <div class="column-11 w-col w-col-6 w-col-small-small-stack"><img src="/static/images/Image0036.png" loading="lazy" srcset="/static/images/Image0036-p-500.png 500w, /static/images/Image0036-p-800.png 800w, /static/images/Image0036-p-1080.png 1080w, /static/images/Image0036-p-1600.png 1600w, /static/images/Image0036.png 1920w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 96vw, 97vw" alt="" class="image-8"></div>
+    </div>
+    <div class="vdx-column-3 w-row">
+      <div class="column-10 w-col w-col-6 w-col-small-small-stack">
+        <div class="vfx-description-heading3">Asset Creation, Layout</div>
+        <div class="vfx-description-text-div2">
+          <div class="vfx-text-bg1"></div>
+          <div class="vfx-description-text">Everything that ends up on screen needs to be 3d modeled. There are a couple of ways to approach this: hard surface, sub-d, sculpting,procedural generation, kit-bashing, and outsourcing the process all together. I come from a background of sub-d modeling due to experience in automotive modeling, and it allows for flexibility in managing the poly count. However, maintaining quad topology needs to always be on the back of my mind, since it allows for stable animation rigging, shading, and integration of modifiers. Another method I recently grew fond of is geometry nodes (blender). It is highly valuable for instancing geometry on points distributed on another mesh. This is also the perfect tool to create abstract shapes and animations, as seen in the intro animation of this website.</div>
+        </div>
+      </div>
+      <div class="column-11 w-col w-col-6 w-col-small-small-stack"><img src="/static/images/image-15.png" loading="lazy" srcset="/static/images/image-15-p-500.png 500w, /static/images/image-15-p-800.png 800w, /static/images/image-15.png 839w" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 48vw, 49vw" alt="" class="vfx-img4"></div>
+    </div>
+    <div class="vdx-column-4 w-row">
+      <div class="column-10 w-col w-col-6 w-col-small-small-stack">
+        <div class="vfx-vid-1 w-video w-embed" id="vfxvid1"></div>
+        <div class="vfx-vid-2 w-video w-embed" id="vfxvid2"></div>
+      </div>
+      <div class="column-11 w-col w-col-6 w-col-small-small-stack">
+        <div class="vfx-vid-3 w-video w-embed" id="vfxvid3"></div>
+      </div>
+    </div>
+    <div class="vfx-title-div2">
+      <div class="vfx-description-heading4">Shading and Rendering</div>
+      <div class="vfx-vid4 w-video w-embed" id="vfxvid4"></div>
+    </div>
+  <script>
+      let vid1 = document.getElementById("vfxvid1")
+      let height1 = 0.5625 * vid1.offsetWidth
+      vid1.innerHTML = '<iframe class="vfxviewer w-video w-embed" title="personal website intro animation" src="https://alxdcontentstream.ddns.net/videos/embed/ad2e27d2-f35a-40b0-ac9d-ec847309ad72?muted=1&loop=0&controlBar=0&api=1&title=0&warningTitle=0&bigPlayBackgroundColor=rgba(100, 100, 100, 0)&foregroundColor=rgba(100, 100, 100, 0)" style="width: 100%;height:' + height1 + 'px;position: relative;z-index: 2" frameborder="0" allow="autoplay" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>'
+      let vid2 = document.getElementById("vfxvid2")
+      let height2 = 0.5625 * vid2.offsetWidth
+      vid2.innerHTML = '<iframe class="vfxviewer w-video w-embed" title="personal website intro animation" src="https://alxdcontentstream.ddns.net/videos/embed/bf97753e-417b-4e41-a5a9-4b95e23e7875?muted=1&loop=0&controlBar=0&api=1&title=0&warningTitle=0&bigPlayBackgroundColor=rgba(100, 100, 100, 0)&foregroundColor=rgba(100, 100, 100, 0)" style="width: 100%;height:' + height2 + 'px;position: relative;z-index: 2" frameborder="0" allow="autoplay" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>'
+      let vid3 = document.getElementById("vfxvid3")
+      let height3 = 0.5625 * vid3.offsetWidth
+      vid3.innerHTML = '<iframe class="vfxviewer w-video w-embed" title="personal website intro animation" src="https://alxdcontentstream.ddns.net/videos/embed/abfe9748-17a5-4300-9b0e-f626ec1da466?muted=1&loop=0&controlBar=0&api=1&title=0&warningTitle=0&bigPlayBackgroundColor=rgba(100, 100, 100, 0)&foregroundColor=rgba(100, 100, 100, 0)" style="width: 100%;height:' + height3 + 'px;position: relative;z-index: 2" frameborder="0" allow="autoplay" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>'
+      let vid4 = document.getElementById("vfxvid4")
+      let height4 = 0.5625 * vid4.offsetWidth
+      vid4.innerHTML = '<iframe class="vfxviewer w-video w-embed" title="personal website intro animation" src="https://alxdcontentstream.ddns.net/videos/embed/6109302a-b634-449e-9e5a-fa741bcdaac8?muted=1&loop=0&controlBar=0&api=1&title=0&warningTitle=0&bigPlayBackgroundColor=rgba(100, 100, 100, 0)&foregroundColor=rgba(100, 100, 100, 0)" style="width: 100%;height:' + height4 + 'px;position: relative;z-index: 2" frameborder="0" allow="autoplay" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>'
+
+  </script>
+    <div class="vdx-column-5 w-row">
+      <div class="column-10 w-col w-col-6 w-col-small-small-stack">
+        <div class="vfx-description-text-div3">
+          <div class="vfx-text-bg1"></div>
+          <div class="vfx-description-text">Shading is about modifying the interaction of light on meshes, not just adding color. The look and feel of any material in real life can be defined by normals, roughness, specularity, transmission, and emission. Normals alter the incident angle and direction of a lightray hitting the surface of a mesh, and give the illusion of additional detail where the geometry is actually flat. The roughness and specular fields describe the glossiness of a material. A lower roughness allows an object to have glass-like reflections of another shader, while a high roughness makes reflections from one source appear to come from every angle. Specularity applies more to emission sources, lamps, and it defines whether the wavelength of an emission source changes upon impacting a mesh. This used to be daunting when I started 3D software in the second half of highschool, but luckily this overview of shaders applies to all major render engines in many different softwares. </div>
+        </div><img src="/static/images/image-18.png" loading="lazy" srcset="/static/images/image-18-p-500.png 500w, /static/images/image-18-p-800.png 800w, /static/images/image-18-p-1080.png 1080w, /static/images/image-18.png 1407w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 64vw, 49vw" alt="" class="vfx-img-6">
+      </div>
+      <div class="column-11 w-col w-col-6 w-col-small-small-stack"><img src="/static/images/image-16.png" loading="lazy" srcset="/static/images/image-16-p-500.png 500w, /static/images/image-16.png 544w" sizes="(max-width: 479px) 78vw, (max-width: 767px) 68vw, (max-width: 991px) 43vw, 34vw" alt="" class="vfx-img-5"></div>
+    </div>
+    <div class="vfx-title-div-3">
+      <div class="vfx-description-heading5">Composite, Edit, and Color</div>
+    </div>
+    <div class="vdx-column-6 w-row">
+      <div class="column-10 w-col w-col-6 w-col-small-small-stack"><img src="/static/images/image-19.png" loading="lazy" srcset="/static/images/image-19-p-500.png 500w, /static/images/image-19-p-800.png 800w, /static/images/image-19-p-1080.png 1080w, /static/images/image-19-p-1600.png 1600w, /static/images/image-19-p-2000.png 2000w, /static/images/image-19.png 2560w" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 69vw, 64vw" alt="" class="vfx-vid-7"><img src="/static/images/image-20.png" loading="lazy" srcset="/static/images/image-20-p-500.png 500w, /static/images/image-20-p-800.png 800w, /static/images/image-20-p-1080.png 1080w, /static/images/image-20.png 1542w" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 69vw, 64vw" alt="" class="vfx-vid-7"></div>
+      <div class="column-11 w-col w-col-6 w-col-small-small-stack"><img src="/static/images/vfx-element1.png" loading="lazy" srcset="/static/images/vfx-element1-p-500.png 500w, /static/images/vfx-element1-p-800.png 800w, /static/images/vfx-element1.png 884w" sizes="(max-width: 479px) 38vw, (max-width: 767px) 39vw, (max-width: 991px) 34vw, 24vw" alt="" class="vfx-vid-8">
+        <div class="vfx-description-text-div4">
+          <div class="vfx-text-bg1"></div>
+          <div class="vfx-description-text">The rendered image from a 3d software is usually intentionally kept flat, as I may not have decided on the final look of the project. Using high bit depth EXR packaged frames, I get as much color latitude as grading log footage. This allows for flexible color correction to match the environment of live action footage, and later creative color grading without artifacts. I start every color grade with a color scheme, and the truth is most films use a variation of orange/yellow and teal/blue. The next thing I worry about is placing skin tones on the vectorscope line, while making it believable in relation to other lights in the scene. Finally, I add image imperfections like hallation, glow, and blur to bring my image closer to film.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="div-block-17"></div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62f0a9bcac1acae2293389f6" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="/static/js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
+</html>
