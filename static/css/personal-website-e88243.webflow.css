@@ -3237,10 +3237,7 @@ a {
   }
 
   .viewer-outer-closed {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
   }
 
   .vfx-description-heading {
@@ -4055,6 +4052,10 @@ a {
     width: 90%;
     margin-top: -40px;
     font-size: 14px;
+  }
+
+  .viewer-outer-closed {
+    display: none;
   }
 
   .vfx-close-button-img {
