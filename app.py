@@ -28,6 +28,10 @@ def demomenu():
 def vfxdemo():
     return render_template('vfxdemo.html')
 
+@app.route('/cncdemo', methods = ['GET'] )
+def cncdemo():
+    return render_template('cnc demo.html')
+
 @app.route('/dbinit')
 def dbinit():
     from models import User,Chatroom,Chatmessage,Roomassignment,\
