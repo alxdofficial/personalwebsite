@@ -2738,6 +2738,47 @@ a {
   align-items: flex-start;
 }
 
+.cncdemo-img4 {
+  width: 80%;
+  margin-top: 10%;
+}
+
+.cncdemo-img5 {
+  width: 90%;
+}
+
+.cncdemo-img6 {
+  width: 70%;
+  margin-top: -15%;
+  margin-left: -10%;
+}
+
+.column-12-copy {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.cncdemo-img5-copy {
+  width: 90%;
+}
+
+.cncdemo-img6-copy {
+  width: 70%;
+  margin-top: -15%;
+  margin-left: -10%;
+}
+
 @media screen and (max-width: 991px) {
   .dropdown-list {
     margin-right: 18px;
@@ -3748,6 +3789,22 @@ a {
   .cnc-vid2 {
     width: 100%;
   }
+
+  .cncdemo-img4 {
+    width: 95%;
+  }
+
+  .cncdemo-img6 {
+    width: 80%;
+    margin-top: -10%;
+    margin-left: 5%;
+  }
+
+  .cncdemo-img6-copy {
+    width: 80%;
+    margin-top: -10%;
+    margin-left: 5%;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -4639,7 +4696,7 @@ a {
 
   .column-12-copy {
     overflow: hidden;
-    margin-top: -172%;
+    margin-top: 0%;
   }
 
   .cnccolumn4 {
@@ -4662,5 +4719,34 @@ a {
     top: -210.5vw;
     overflow: hidden;
     margin-top: 0vw;
+  }
+
+  .cncdemo-img4 {
+    margin-right: -10%;
+  }
+
+  .cncdemo-img5 {
+    margin-left: -10%;
+  }
+
+  .cncdemo-img6 {
+    margin-top: -42%;
+    margin-right: 0%;
+    margin-left: 41%;
+  }
+
+  .column-12-copy {
+    overflow: hidden;
+    margin-top: -20%;
+  }
+
+  .cncdemo-img5-copy {
+    margin-left: -10%;
+  }
+
+  .cncdemo-img6-copy {
+    margin-top: -42%;
+    margin-right: 0%;
+    margin-left: 41%;
   }
 }
